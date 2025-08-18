@@ -10,9 +10,14 @@ interface NFTCardProps {
   price: string;
   creator?: string;
   rarity?: string;
+  likes?: number;
+  isLiked?: boolean;
+  creatorAvatar?: string;
+  creatorFollowers?: number;
+  onToggleLike?: () => void;
 }
 
-export function NFTCard({ image, title, tokenId, price, creator, rarity }: NFTCardProps) {
+export function NFTCard({ image, title, tokenId, price, creator, rarity, likes, isLiked, creatorAvatar, creatorFollowers, onToggleLike }: NFTCardProps) {
   return (
     <Card className="group relative overflow-hidden bg-gradient-card border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow hover:-translate-y-2">
       <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -41,7 +46,21 @@ export function NFTCard({ image, title, tokenId, price, creator, rarity }: NFTCa
           </h3>
           <p className="text-sm text-muted-foreground">Token ID: {tokenId}</p>
           {creator && (
-            <p className="text-xs text-muted-foreground mt-1">by {creator}</p>
+            <div className="flex items-center space-x-2 mt-2">
+              {creatorAvatar && (
+                <img 
+                  src={creatorAvatar} 
+                  alt={creator}
+                  className="w-6 h-6 rounded-full border border-primary/30"
+                />
+              )}
+              <div>
+                <p className="text-xs text-muted-foreground">by {creator}</p>
+                {creatorFollowers && (
+                  <p className="text-xs text-muted-foreground">{creatorFollowers.toLocaleString()} followers</p>
+                )}
+              </div>
+            </div>
           )}
         </div>
         
@@ -50,6 +69,20 @@ export function NFTCard({ image, title, tokenId, price, creator, rarity }: NFTCa
             <p className="text-sm text-muted-foreground">Price</p>
             <p className="text-xl font-bold text-primary">{price}</p>
           </div>
+          
+          {likes !== undefined && (
+            <div className="flex items-center space-x-1">
+              <button
+                onClick={onToggleLike}
+                className={`transition-colors ${
+                  isLiked ? 'text-red-500' : 'text-muted-foreground hover:text-red-500'
+                }`}
+              >
+                <span className="text-lg">{isLiked ? '❤️' : '🤍'}</span>
+              </button>
+              <span className="text-sm text-muted-foreground">{likes}</span>
+            </div>
+          )}
         </div>
       </CardContent>
 

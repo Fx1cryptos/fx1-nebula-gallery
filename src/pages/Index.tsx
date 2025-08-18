@@ -1,4 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FloatingGeometry } from '@/components/3D/FloatingGeometry';
 import { Button3D } from '@/components/ui/Button3D';
 import { WalletConnect } from '@/components/WalletConnect';
@@ -87,6 +88,19 @@ export default function Index() {
                 FX1 Digital Hubs
               </h1>
             </div>
+            
+            <div className="hidden md:flex items-center space-x-6">
+              <Link to="/" className="text-foreground hover:text-primary transition-colors">
+                Home
+              </Link>
+              <Link to="/gallery" className="text-foreground hover:text-primary transition-colors">
+                Gallery
+              </Link>
+              <Link to="/create" className="text-foreground hover:text-primary transition-colors">
+                Create
+              </Link>
+            </div>
+            
             <WalletConnect />
           </div>
         </div>
@@ -119,12 +133,16 @@ export default function Index() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
-              <Button3D variant="hero" size="lg" className="text-lg px-8 py-4">
-                Discover Collection
-              </Button3D>
-              <Button3D variant="wallet" size="lg" className="text-lg px-8 py-4">
-                Start Creating
-              </Button3D>
+              <Link to="/gallery">
+                <Button3D variant="hero" size="lg" className="text-lg px-8 py-4">
+                  Discover Collection
+                </Button3D>
+              </Link>
+              <Link to="/create">
+                <Button3D variant="wallet" size="lg" className="text-lg px-8 py-4">
+                  Start Creating
+                </Button3D>
+              </Link>
             </div>
           </div>
         </div>
@@ -162,9 +180,11 @@ export default function Index() {
           </div>
 
           <div className="text-center mt-12">
-            <Button3D variant="hero" size="lg">
-              View All NFTs
-            </Button3D>
+            <Link to="/gallery">
+              <Button3D variant="hero" size="lg">
+                View All NFTs
+              </Button3D>
+            </Link>
           </div>
         </div>
       </section>
