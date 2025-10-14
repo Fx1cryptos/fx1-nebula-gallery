@@ -95,7 +95,7 @@ export function SocialLinks() {
         {/* Copyright */}
         <div className="text-center mt-12 pt-8 border-t border-border/20">
           <p className="text-muted-foreground">
-            © 2024 FX1 Digital Hubs. Where Creativity Becomes Culture.
+            © 2025 FX1 Digital Hubs. Where Creativity Becomes Culture.
           </p>
         </div>
       </div>

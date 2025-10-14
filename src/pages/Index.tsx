@@ -8,6 +8,7 @@ import { CreatorHub } from '@/components/CreatorHub';
 import { HowItWorks } from '@/components/HowItWorks';
 import { SocialLinks } from '@/components/SocialLinks';
 import fx1Logo from '@/assets/fx1-logo.png';
+import fx1Hero from '@/assets/fx1-hero.jpeg';
 
 // Sample NFT data
 const sampleNFTs = [
@@ -93,11 +94,17 @@ export default function Index() {
               <Link to="/" className="text-foreground hover:text-primary transition-colors">
                 Home
               </Link>
-              <Link to="/gallery" className="text-foreground hover:text-primary transition-colors">
-                Gallery
+              <Link to="/social" className="text-foreground hover:text-primary transition-colors">
+                Social
               </Link>
-              <Link to="/create" className="text-foreground hover:text-primary transition-colors">
-                Create
+              <Link to="/rewards" className="text-foreground hover:text-primary transition-colors">
+                Rewards
+              </Link>
+              <Link to="/arena" className="text-foreground hover:text-primary transition-colors">
+                Arena
+              </Link>
+              <Link to="/leaderboard" className="text-foreground hover:text-primary transition-colors">
+                Leaderboard
               </Link>
             </div>
             
@@ -107,48 +114,57 @@ export default function Index() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center geometric-bg overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={fx1Hero} 
+            alt="FX1 Digital Hubs" 
+            className="w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        </div>
+
         <Suspense fallback={<div />}>
           <FloatingGeometry />
         </Suspense>
         
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-            <img 
-              src={fx1Logo} 
-              alt="FX1 Digital Hubs" 
-              className="w-32 h-32 mx-auto mb-8 float-animation"
-            />
-            
-            <h1 className="text-6xl md:text-8xl font-bold bg-gradient-primary bg-clip-text text-transparent leading-tight">
+          <div className="max-w-5xl mx-auto space-y-8 animate-fade-in">
+            <h1 className="text-6xl md:text-8xl font-bold mb-4" style={{ 
+              background: 'linear-gradient(135deg, #FFD700 0%, #FFF 50%, #00A8FF 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
               FX1 DIGITAL HUBS
             </h1>
             
-            <p className="text-2xl md:text-3xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed">
-              Style the Web3 with NFT Fashion & Surreal Art
+            <p className="text-2xl md:text-4xl font-bold text-foreground leading-tight">
+              Your Web3 Hub for NFTs, Social Impact, & $FDH Rewards
             </p>
             
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-              Where Creativity Becomes Culture. Every Piece Tells a Story. Every Drop is a Vibe.
+            <p className="text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto">
+              Earn $FDH. Stake $FDH. Level Up Your Score.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
-              <Link to="/gallery">
+              <a href="https://zora.co/@fx1_hubs" target="_blank" rel="noopener noreferrer">
                 <Button3D variant="hero" size="lg" className="text-lg px-8 py-4">
-                  Discover Collection
+                  🔗 Explore NFTs on Zora
                 </Button3D>
-              </Link>
-              <Link to="/create">
+              </a>
+              <a href="https://rainbow.me/token/base/0x1f85705d939Bb6Fa1AEbE99d7105AdCee75CE380" target="_blank" rel="noopener noreferrer">
                 <Button3D variant="wallet" size="lg" className="text-lg px-8 py-4">
-                  Start Creating
+                  💰 Buy $FDH on Base
                 </Button3D>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
           <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
           </div>
@@ -184,6 +200,98 @@ export default function Index() {
               <Button3D variant="hero" size="lg">
                 View All NFTs
               </Button3D>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Gamification Features */}
+      <section className="py-20 bg-gradient-to-b from-background to-background/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+              Earn $FDH & Level Up
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Engage, create, and compete to earn rewards in the FX1 ecosystem
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            <Link to="/social">
+              <div className="group p-8 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 hover:border-blue-500/60 transition-all hover:scale-105 cursor-pointer">
+                <div className="text-5xl mb-4">💬</div>
+                <h3 className="text-2xl font-bold mb-3 text-blue-400">Social Hub</h3>
+                <p className="text-muted-foreground mb-4">
+                  Post, like, comment & follow creators to earn $FDH rewards
+                </p>
+                <div className="text-sm font-bold text-blue-400">+10 $FDH per post</div>
+              </div>
+            </Link>
+
+            <Link to="/rewards">
+              <div className="group p-8 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 hover:border-yellow-500/60 transition-all hover:scale-105 cursor-pointer">
+                <div className="text-5xl mb-4">🔥</div>
+                <h3 className="text-2xl font-bold mb-3 text-yellow-400">Daily Streaks</h3>
+                <p className="text-muted-foreground mb-4">
+                  Login daily to build your streak and earn increasing rewards
+                </p>
+                <div className="text-sm font-bold text-yellow-400">Day 7 = Wardrobe Box!</div>
+              </div>
+            </Link>
+
+            <Link to="/arena">
+              <div className="group p-8 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 hover:border-purple-500/60 transition-all hover:scale-105 cursor-pointer">
+                <div className="text-5xl mb-4">⚔️</div>
+                <h3 className="text-2xl font-bold mb-3 text-purple-400">Fashion Arena</h3>
+                <p className="text-muted-foreground mb-4">
+                  Battle for Best Dressed and win exclusive NFTs + rewards
+                </p>
+                <div className="text-sm font-bold text-purple-400">Weekly competitions</div>
+              </div>
+            </Link>
+
+            <Link to="/leaderboard">
+              <div className="group p-8 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 hover:border-green-500/60 transition-all hover:scale-105 cursor-pointer">
+                <div className="text-5xl mb-4">🏆</div>
+                <h3 className="text-2xl font-bold mb-3 text-green-400">Leaderboards</h3>
+                <p className="text-muted-foreground mb-4">
+                  Compete to reach the top and claim massive $FDH prizes
+                </p>
+                <div className="text-sm font-bold text-green-400">1st = 1000 $FDH</div>
+              </div>
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mt-6">
+            <Link to="/wear-to-earn">
+              <div className="group p-8 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-blue-500/20 border border-indigo-500/30 hover:border-indigo-500/60 transition-all hover:scale-105 cursor-pointer">
+                <div className="text-5xl mb-4">👗</div>
+                <h3 className="text-2xl font-bold mb-3 text-indigo-400">Wear to Earn</h3>
+                <p className="text-muted-foreground">
+                  Equip NFT wearables and earn passive $FDH rewards
+                </p>
+              </div>
+            </Link>
+
+            <Link to="/stake">
+              <div className="group p-8 rounded-2xl bg-gradient-to-br from-red-500/20 to-pink-500/20 border border-red-500/30 hover:border-red-500/60 transition-all hover:scale-105 cursor-pointer">
+                <div className="text-5xl mb-4">💎</div>
+                <h3 className="text-2xl font-bold mb-3 text-red-400">Stake $FDH</h3>
+                <p className="text-muted-foreground">
+                  Stake your $FDH tokens and earn staking rewards
+                </p>
+              </div>
+            </Link>
+
+            <Link to="/referrals">
+              <div className="group p-8 rounded-2xl bg-gradient-to-br from-teal-500/20 to-cyan-500/20 border border-teal-500/30 hover:border-teal-500/60 transition-all hover:scale-105 cursor-pointer">
+                <div className="text-5xl mb-4">🎁</div>
+                <h3 className="text-2xl font-bold mb-3 text-teal-400">Referrals</h3>
+                <p className="text-muted-foreground">
+                  Invite friends and earn bonus $FDH for each signup
+                </p>
+              </div>
             </Link>
           </div>
         </div>

@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button3D } from '@/components/ui/Button3D';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Shirt, Coins, CheckCircle } from 'lucide-react';
+import { Progress } from '@/components/ui/progress';
+import { Shirt, Coins, CheckCircle, Star, TrendingUp } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function WearToEarn() {
   const navigate = useNavigate();
   const [user, setUser] = useState<any>(null);
   const [wearables, setWearables] = useState<any[]>([]);
+  const [userStats, setUserStats] = useState<any>(null);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -38,6 +40,7 @@ export default function WearToEarn() {
     const { data, error } = await supabase
       .from('wearables')
       .select('*')
+      .eq('owner_id', user.id)
       .order('created_at', { ascending: false });
 
     if (error) {
@@ -45,6 +48,14 @@ export default function WearToEarn() {
     } else {
       setWearables(data || []);
     }
+
+    // Load user stats
+    const { data: stats } = await supabase
+      .from('user_stats')
+      .select('*')
+      .eq('user_id', user.id)
+      .single();
+    setUserStats(stats);
   };
 
   const handleEquip = async (wearableId: string, currentlyEquipped: boolean) => {
@@ -56,10 +67,24 @@ export default function WearToEarn() {
     if (error) {
       toast.error('Failed to update wearable');
     } else {
-      toast.success(currentlyEquipped ? 'Wearable unequipped' : 'Wearable equipped');
+      if (!currentlyEquipped) {
+        // Award social task for equipping
+        await supabase.from('social_tasks').insert({
+          user_id: user.id,
+          task_type: 'equip',
+          fdh_reward: 5
+        });
+        toast.success('Wearable equipped! +5 $FDH earned');
+      } else {
+        toast.success('Wearable unequipped');
+      }
       loadWearables();
     }
   };
+
+  const totalEarnings = wearables.reduce((sum, w) => sum + parseFloat(w.earnings || '0'), 0);
+  const equippedCount = wearables.filter(w => w.is_equipped).length;
+  const stylePointsBonus = userStats ? Math.floor(userStats.style_points / 100) * 5 : 0;
 
   return (
     <div className="min-h-screen bg-background">
@@ -82,16 +107,63 @@ export default function WearToEarn() {
               <h1 className="text-5xl font-bold gradient-text">Wear to Earn</h1>
             </div>
             <p className="text-xl text-muted-foreground">
-              Equip wearable NFTs and earn $FDH rewards
+              Equip wearable NFTs and earn $FDH rewards passively
             </p>
           </div>
 
-          <Card className="p-8 bg-gradient-to-r from-primary/20 to-accent/20 backdrop-blur-sm border-primary/30">
-            <div className="text-center space-y-2">
-              <p className="text-sm text-muted-foreground">Your Total Earnings</p>
-              <p className="text-5xl font-bold gradient-text">
-                {wearables.reduce((sum, w) => sum + parseFloat(w.earnings || '0'), 0).toFixed(2)} $FDH
-              </p>
+          {/* Stats Cards */}
+          <div className="grid md:grid-cols-4 gap-6">
+            <Card className="p-6 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 backdrop-blur-sm border-yellow-500/30">
+              <div className="text-center space-y-2">
+                <Coins className="w-8 h-8 mx-auto text-yellow-500" />
+                <p className="text-sm text-muted-foreground">Total Earnings</p>
+                <p className="text-3xl font-bold gradient-text">{totalEarnings.toFixed(2)}</p>
+                <p className="text-xs text-muted-foreground">$FDH</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 backdrop-blur-sm border-blue-500/30">
+              <div className="text-center space-y-2">
+                <Shirt className="w-8 h-8 mx-auto text-blue-500" />
+                <p className="text-sm text-muted-foreground">Wearables</p>
+                <p className="text-3xl font-bold text-blue-400">{wearables.length}</p>
+                <p className="text-xs text-muted-foreground">Total</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-gradient-to-br from-green-500/20 to-emerald-500/20 backdrop-blur-sm border-green-500/30">
+              <div className="text-center space-y-2">
+                <CheckCircle className="w-8 h-8 mx-auto text-green-500" />
+                <p className="text-sm text-muted-foreground">Equipped</p>
+                <p className="text-3xl font-bold text-green-400">{equippedCount}</p>
+                <p className="text-xs text-muted-foreground">Active</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border-purple-500/30">
+              <div className="text-center space-y-2">
+                <Star className="w-8 h-8 mx-auto text-purple-500" />
+                <p className="text-sm text-muted-foreground">Style Points</p>
+                <p className="text-3xl font-bold text-purple-400">{userStats?.style_points || 0}</p>
+                <p className="text-xs text-green-400">+{stylePointsBonus}% boost</p>
+              </div>
+            </Card>
+          </div>
+
+          {/* Info Card */}
+          <Card className="p-6 bg-gradient-to-r from-primary/20 to-accent/20 backdrop-blur-sm border-primary/30">
+            <div className="flex items-start space-x-4">
+              <TrendingUp className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold mb-2">How Wear to Earn Works</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Each equipped wearable generates passive $FDH rewards over time</li>
+                  <li>• Higher rarity wearables earn more $FDH per day</li>
+                  <li>• Your Style Points boost earnings: {userStats?.style_points || 0} SP = +{stylePointsBonus}% rewards</li>
+                  <li>• Level up wearables by using them to increase their earnings</li>
+                  <li>• Equip your first wearable to earn +5 $FDH bonus!</li>
+                </ul>
+              </div>
             </div>
           </Card>
 

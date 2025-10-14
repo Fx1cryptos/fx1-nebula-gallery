@@ -14,6 +14,243 @@ export type Database = {
   }
   public: {
     Tables: {
+      arena_battles: {
+        Row: {
+          created_at: string | null
+          end_date: string
+          id: string
+          is_active: boolean | null
+          start_date: string
+          theme: string
+          week_number: number
+          year: number
+        }
+        Insert: {
+          created_at?: string | null
+          end_date: string
+          id?: string
+          is_active?: boolean | null
+          start_date: string
+          theme: string
+          week_number: number
+          year: number
+        }
+        Update: {
+          created_at?: string | null
+          end_date?: string
+          id?: string
+          is_active?: boolean | null
+          start_date?: string
+          theme?: string
+          week_number?: number
+          year?: number
+        }
+        Relationships: []
+      }
+      arena_submissions: {
+        Row: {
+          battle_id: string
+          created_at: string | null
+          id: string
+          image_url: string
+          outfit_description: string
+          user_id: string
+          votes_count: number | null
+          wearable_ids: string[]
+        }
+        Insert: {
+          battle_id: string
+          created_at?: string | null
+          id?: string
+          image_url: string
+          outfit_description: string
+          user_id: string
+          votes_count?: number | null
+          wearable_ids: string[]
+        }
+        Update: {
+          battle_id?: string
+          created_at?: string | null
+          id?: string
+          image_url?: string
+          outfit_description?: string
+          user_id?: string
+          votes_count?: number | null
+          wearable_ids?: string[]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "arena_submissions_battle_id_fkey"
+            columns: ["battle_id"]
+            isOneToOne: false
+            referencedRelation: "arena_battles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      arena_votes: {
+        Row: {
+          created_at: string | null
+          id: string
+          submission_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          submission_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          submission_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "arena_votes_submission_id_fkey"
+            columns: ["submission_id"]
+            isOneToOne: false
+            referencedRelation: "arena_submissions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      badges: {
+        Row: {
+          created_at: string | null
+          description: string
+          fdh_reward: number | null
+          icon: string
+          id: string
+          name: string
+          requirement: Json
+        }
+        Insert: {
+          created_at?: string | null
+          description: string
+          fdh_reward?: number | null
+          icon: string
+          id?: string
+          name: string
+          requirement: Json
+        }
+        Update: {
+          created_at?: string | null
+          description?: string
+          fdh_reward?: number | null
+          icon?: string
+          id?: string
+          name?: string
+          requirement?: Json
+        }
+        Relationships: []
+      }
+      comments: {
+        Row: {
+          content: string
+          created_at: string | null
+          id: string
+          post_id: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string | null
+          id?: string
+          post_id: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string | null
+          id?: string
+          post_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "comments_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      daily_streaks: {
+        Row: {
+          created_at: string | null
+          current_streak: number | null
+          id: string
+          last_login_date: string | null
+          longest_streak: number | null
+          total_fdh_earned: number | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          current_streak?: number | null
+          id?: string
+          last_login_date?: string | null
+          longest_streak?: number | null
+          total_fdh_earned?: number | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          current_streak?: number | null
+          id?: string
+          last_login_date?: string | null
+          longest_streak?: number | null
+          total_fdh_earned?: number | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      fashion_quests: {
+        Row: {
+          created_at: string | null
+          description: string
+          end_date: string
+          fdh_reward: number
+          id: string
+          is_active: boolean | null
+          quest_type: string
+          requirements: Json
+          start_date: string
+          title: string
+        }
+        Insert: {
+          created_at?: string | null
+          description: string
+          end_date: string
+          fdh_reward: number
+          id?: string
+          is_active?: boolean | null
+          quest_type: string
+          requirements: Json
+          start_date: string
+          title: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string
+          end_date?: string
+          fdh_reward?: number
+          id?: string
+          is_active?: boolean | null
+          quest_type?: string
+          requirements?: Json
+          start_date?: string
+          title?: string
+        }
+        Relationships: []
+      }
       fashion_runway_submissions: {
         Row: {
           created_at: string | null
@@ -107,6 +344,45 @@ export type Database = {
           },
         ]
       }
+      leaderboard_entries: {
+        Row: {
+          category: string
+          created_at: string | null
+          id: string
+          rank: number | null
+          reward_claimed: boolean | null
+          score: number
+          updated_at: string | null
+          user_id: string
+          week_number: number
+          year: number
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          id?: string
+          rank?: number | null
+          reward_claimed?: boolean | null
+          score: number
+          updated_at?: string | null
+          user_id: string
+          week_number: number
+          year: number
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          id?: string
+          rank?: number | null
+          reward_claimed?: boolean | null
+          score?: number
+          updated_at?: string | null
+          user_id?: string
+          week_number?: number
+          year?: number
+        }
+        Relationships: []
+      }
       likes: {
         Row: {
           created_at: string | null
@@ -196,6 +472,92 @@ export type Database = {
           },
         ]
       }
+      post_likes: {
+        Row: {
+          created_at: string | null
+          id: string
+          post_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          post_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          post_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "post_likes_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      posts: {
+        Row: {
+          comments_count: number | null
+          content: string
+          created_at: string | null
+          id: string
+          image_url: string | null
+          likes_count: number | null
+          nft_id: string | null
+          reposts_count: number | null
+          updated_at: string | null
+          user_id: string
+          wearable_id: string | null
+        }
+        Insert: {
+          comments_count?: number | null
+          content: string
+          created_at?: string | null
+          id?: string
+          image_url?: string | null
+          likes_count?: number | null
+          nft_id?: string | null
+          reposts_count?: number | null
+          updated_at?: string | null
+          user_id: string
+          wearable_id?: string | null
+        }
+        Update: {
+          comments_count?: number | null
+          content?: string
+          created_at?: string | null
+          id?: string
+          image_url?: string | null
+          likes_count?: number | null
+          nft_id?: string | null
+          reposts_count?: number | null
+          updated_at?: string | null
+          user_id?: string
+          wearable_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "posts_nft_id_fkey"
+            columns: ["nft_id"]
+            isOneToOne: false
+            referencedRelation: "nfts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "posts_wearable_id_fkey"
+            columns: ["wearable_id"]
+            isOneToOne: false
+            referencedRelation: "wearables"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -225,6 +587,35 @@ export type Database = {
           wallet_address?: string | null
         }
         Relationships: []
+      }
+      quest_completions: {
+        Row: {
+          completed_at: string | null
+          id: string
+          quest_id: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          id?: string
+          quest_id: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          id?: string
+          quest_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quest_completions_quest_id_fkey"
+            columns: ["quest_id"]
+            isOneToOne: false
+            referencedRelation: "fashion_quests"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       referrals: {
         Row: {
@@ -274,6 +665,62 @@ export type Database = {
           },
         ]
       }
+      reposts: {
+        Row: {
+          created_at: string | null
+          id: string
+          post_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          post_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          post_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reposts_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      social_tasks: {
+        Row: {
+          completed_at: string | null
+          created_at: string | null
+          fdh_reward: number
+          id: string
+          task_type: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string | null
+          fdh_reward: number
+          id?: string
+          task_type: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string | null
+          fdh_reward?: number
+          id?: string
+          task_type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       staking: {
         Row: {
           created_at: string | null
@@ -312,6 +759,35 @@ export type Database = {
           },
         ]
       }
+      user_badges: {
+        Row: {
+          badge_id: string
+          earned_at: string | null
+          id: string
+          user_id: string
+        }
+        Insert: {
+          badge_id: string
+          earned_at?: string | null
+          id?: string
+          user_id: string
+        }
+        Update: {
+          badge_id?: string
+          earned_at?: string | null
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_badges_badge_id_fkey"
+            columns: ["badge_id"]
+            isOneToOne: false
+            referencedRelation: "badges"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           id: string
@@ -334,6 +810,86 @@ export type Database = {
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_stats: {
+        Row: {
+          created_at: string | null
+          id: string
+          level: number | null
+          style_points: number | null
+          total_fdh_earned: number | null
+          total_followers: number | null
+          total_likes_received: number | null
+          total_posts: number | null
+          updated_at: string | null
+          user_id: string
+          xp: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          level?: number | null
+          style_points?: number | null
+          total_fdh_earned?: number | null
+          total_followers?: number | null
+          total_likes_received?: number | null
+          total_posts?: number | null
+          updated_at?: string | null
+          user_id: string
+          xp?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          level?: number | null
+          style_points?: number | null
+          total_fdh_earned?: number | null
+          total_followers?: number | null
+          total_likes_received?: number | null
+          total_posts?: number | null
+          updated_at?: string | null
+          user_id?: string
+          xp?: number | null
+        }
+        Relationships: []
+      }
+      wardrobe_boxes: {
+        Row: {
+          box_type: string
+          created_at: string | null
+          id: string
+          is_opened: boolean | null
+          opened_at: string | null
+          reward_nft_id: string | null
+          user_id: string
+        }
+        Insert: {
+          box_type: string
+          created_at?: string | null
+          id?: string
+          is_opened?: boolean | null
+          opened_at?: string | null
+          reward_nft_id?: string | null
+          user_id: string
+        }
+        Update: {
+          box_type?: string
+          created_at?: string | null
+          id?: string
+          is_opened?: boolean | null
+          opened_at?: string | null
+          reward_nft_id?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "wardrobe_boxes_reward_nft_id_fkey"
+            columns: ["reward_nft_id"]
+            isOneToOne: false
+            referencedRelation: "wearables"
             referencedColumns: ["id"]
           },
         ]

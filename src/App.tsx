@@ -13,6 +13,10 @@ import Runway from "./pages/Runway";
 import WearToEarn from "./pages/WearToEarn";
 import Referrals from "./pages/Referrals";
 import About from "./pages/About";
+import Social from "./pages/Social";
+import Rewards from "./pages/Rewards";
+import Leaderboard from "./pages/Leaderboard";
+import Arena from "./pages/Arena";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +38,10 @@ const App = () => (
           <Route path="/wear-to-earn" element={<WearToEarn />} />
           <Route path="/referrals" element={<Referrals />} />
           <Route path="/about" element={<About />} />
+          <Route path="/social" element={<Social />} />
+          <Route path="/rewards" element={<Rewards />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/arena" element={<Arena />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
