@@ -106,6 +106,9 @@ export default function Index() {
               <Link to="/leaderboard" className="text-foreground hover:text-primary transition-colors">
                 Leaderboard
               </Link>
+              <Link to="/fx1-flux" className="text-foreground hover:text-primary transition-colors">
+                FX1 Flux AI
+              </Link>
             </div>
             
             <WalletConnect />
