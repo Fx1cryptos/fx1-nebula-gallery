@@ -1,1 +1,4 @@
 project_id = "eydjvxowjmlpzpdrlabe"
+
+[functions.fetch-zora-nfts]
+verify_jwt = false

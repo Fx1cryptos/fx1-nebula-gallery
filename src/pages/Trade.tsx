@@ -3,22 +3,51 @@ import { Button3D } from '@/components/ui/Button3D';
 import { ZoraEmbed } from '@/components/ZoraEmbed';
 import { Card } from '@/components/ui/card';
 import { ExternalLink, TrendingUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 export default function Trade() {
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+
+  // FX1 Token on Base
+  const mainTokenAddress = '0x1f85705d939Bb6Fa1AEbE99d7105AdCee75CE380';
 
   const collections = [
     {
-      name: 'FX1 Creator Coins',
-      url: 'https://zora.co/collect/base:0x...',
-      description: 'Trade creator economy tokens',
-    },
-    {
-      name: 'FX1 Fashion NFTs',
-      url: 'https://zora.co/collect/base:0x...',
-      description: 'Exclusive fashion wearables',
+      name: 'FX1 Token',
+      address: mainTokenAddress,
+      url: `https://zora.co/collect/base:${mainTokenAddress}`,
+      description: 'Official FX1 token on Base chain',
     },
   ];
+
+  useEffect(() => {
+    const fetchZoraData = async () => {
+      setIsLoading(true);
+      try {
+        const { data, error } = await supabase.functions.invoke('fetch-zora-nfts', {
+          body: { contractAddress: mainTokenAddress }
+        });
+
+        if (error) throw error;
+        console.log('Zora data:', data);
+      } catch (error) {
+        console.error('Error fetching Zora data:', error);
+        toast({
+          title: 'Error',
+          description: 'Failed to load NFT data',
+          variant: 'destructive',
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchZoraData();
+  }, [toast]);
 
   return (
     <div className="min-h-screen bg-background">
