@@ -1,7 +1,6 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Gallery from "./pages/Gallery";
@@ -21,37 +20,33 @@ import FX1Flux from "./pages/FX1Flux";
 import Tokens from "./pages/Tokens";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
-
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/create" element={<CreateArt />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/stake" element={<Stake />} />
-          <Route path="/trade" element={<Trade />} />
-          <Route path="/runway" element={<Runway />} />
-          <Route path="/wear-to-earn" element={<WearToEarn />} />
-          <Route path="/referrals" element={<Referrals />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/social" element={<Social />} />
-          <Route path="/rewards" element={<Rewards />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/arena" element={<Arena />} />
-          <Route path="/fx1-flux" element={<FX1Flux />} />
-          <Route path="/tokens" element={<Tokens />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <TooltipProvider>
+    <Toaster />
+    <Sonner />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/create" element={<CreateArt />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/stake" element={<Stake />} />
+        <Route path="/trade" element={<Trade />} />
+        <Route path="/runway" element={<Runway />} />
+        <Route path="/wear-to-earn" element={<WearToEarn />} />
+        <Route path="/referrals" element={<Referrals />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/social" element={<Social />} />
+        <Route path="/rewards" element={<Rewards />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/arena" element={<Arena />} />
+        <Route path="/fx1-flux" element={<FX1Flux />} />
+        <Route path="/tokens" element={<Tokens />} />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  </TooltipProvider>
 );
 
 export default App;
