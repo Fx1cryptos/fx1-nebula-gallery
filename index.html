@@ -24,7 +24,44 @@
     <meta name="twitter:title" content="FX1 Nebula Gallery" />
     <meta name="twitter:description" content="Experience Onchain Fashion & Utility" />
     <meta name="twitter:image" content="https://fx1-nebula-gallery.lovable.app/og.png" />
-</head>
+
+    <!-- Base Mini App SDK -->
+    <script type="module">
+      import { sdk } from '@farcaster/miniapp-sdk';
+
+      // Trigger app display once ready
+      sdk.actions.ready();
+
+      // Optional: handle token gating or other SDK actions
+      // sdk.actions.tokenGated({ tokenAddress: 'YOUR_FDH_CONTRACT_ADDRESS' });
+    </script>
+
+    <!-- Metadata generation for embedding -->
+    <script type="module">
+      import type { Metadata } from 'next';
+
+      export async function generateMetadata(): Promise<Metadata> {
+        return {
+          other: {
+            'fc:miniapp': JSON.stringify({
+              version: 'next',
+              imageUrl: 'https://fx1-nebula-gallery.lovable.app/embed-image.png',
+              button: {
+                title: 'Launch FX1 DIGITAL HUBS',
+                action: {
+                  type: 'launch_miniapp',
+                  name: 'FX1 DIGITAL HUBS',
+                  url: 'https://fx1-nebula-gallery.lovable.app',
+                  splashImageUrl: 'https://fx1-nebula-gallery.lovable.app/splash.png',
+                  splashBackgroundColor: '#001F3F'
+                }
+              }
+            })
+          }
+        };
+      }
+    </script>
+  </head>
 
   <body>
     <div id="root"></div>
