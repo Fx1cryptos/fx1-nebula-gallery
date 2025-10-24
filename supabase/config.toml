@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.fetch-opensea-nfts]
 verify_jwt = false
+
+[functions.manifest]
+verify_jwt = false

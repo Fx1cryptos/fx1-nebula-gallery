@@ -18,6 +18,7 @@ import Rewards from "./pages/Rewards";
 import Leaderboard from "./pages/Leaderboard";
 import Arena from "./pages/Arena";
 import FX1Flux from "./pages/FX1Flux";
+import Tokens from "./pages/Tokens";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/arena" element={<Arena />} />
           <Route path="/fx1-flux" element={<FX1Flux />} />
+          <Route path="/tokens" element={<Tokens />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

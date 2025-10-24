@@ -7,7 +7,6 @@ import { NFTCard } from '@/components/NFTCard';
 import { CreatorHub } from '@/components/CreatorHub';
 import { HowItWorks } from '@/components/HowItWorks';
 import { SocialLinks } from '@/components/SocialLinks';
-import fx1Logo from '@/assets/fx1-logo.png';
 import fx1Hero from '@/assets/fx1-hero.jpeg';
 
 // Sample NFT data
@@ -84,7 +83,7 @@ export default function Index() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <img src={fx1Logo} alt="FX1 Digital Hubs" className="w-12 h-12" />
+              <img src="/logo.png" alt="FX1 Digital Hubs" className="w-12 h-12" />
               <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                 FX1 Digital Hubs
               </h1>
@@ -93,6 +92,9 @@ export default function Index() {
             <div className="hidden md:flex items-center space-x-6">
               <Link to="/" className="text-foreground hover:text-primary transition-colors">
                 Home
+              </Link>
+              <Link to="/tokens" className="text-foreground hover:text-primary transition-colors">
+                Tokens
               </Link>
               <Link to="/social" className="text-foreground hover:text-primary transition-colors">
                 Social
