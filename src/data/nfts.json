@@ -1,0 +1,38 @@
+[
+  {
+    "name": "FX1 Genesis #001",
+    "description": "Limited edition FX1 Digital Hub genesis NFT",
+    "image": "https://gateway.pinata.cloud/ipfs/bafybeibpsr6kiklsxtxhapi2hcadvstgtdhmpc3acq77ndi7wdcymyqxni",
+    "attributes": [
+      { "trait_type": "Rarity", "value": "Legendary" },
+      { "trait_type": "Collection", "value": "Genesis" }
+    ]
+  },
+  {
+    "name": "FX1 Flux Art #042",
+    "description": "Animated flux artwork from FX1 creator series",
+    "image": "https://gateway.pinata.cloud/ipfs/bafybeihe3kduugbbj5jrfkjd76bpdbgkpu7725okqn32cjfyipqs3npcfy",
+    "attributes": [
+      { "trait_type": "Rarity", "value": "Rare" },
+      { "trait_type": "Collection", "value": "Flux" }
+    ]
+  },
+  {
+    "name": "FX1 Digital Fashion #123",
+    "description": "Exclusive digital fashion piece on Base",
+    "image": "https://gateway.pinata.cloud/ipfs/bafybeibpsr6kiklsxtxhapi2hcadvstgtdhmpc3acq77ndi7wdcymyqxni",
+    "attributes": [
+      { "trait_type": "Rarity", "value": "Epic" },
+      { "trait_type": "Collection", "value": "Fashion" }
+    ]
+  },
+  {
+    "name": "FX1 Metaverse Asset",
+    "description": "3D wearable asset for the FX1 metaverse",
+    "image": "https://gateway.pinata.cloud/ipfs/bafybeihe3kduugbbj5jrfkjd76bpdbgkpu7725okqn32cjfyipqs3npcfy",
+    "attributes": [
+      { "trait_type": "Rarity", "value": "Common" },
+      { "trait_type": "Collection", "value": "Metaverse" }
+    ]
+  }
+]

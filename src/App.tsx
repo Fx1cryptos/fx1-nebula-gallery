@@ -1,9 +1,8 @@
-import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { sdk } from "@farcaster/miniapp-sdk"; // Base Mini App SDK
+import { BaseProvider } from "@/providers/BaseProvider";
 
 import Index from "./pages/Index";
 import Gallery from "./pages/Gallery";
@@ -24,19 +23,12 @@ import Tokens from "./pages/Tokens";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
-  useEffect(() => {
-    // Signal to Base Mini App that the app is ready
-    sdk.actions
-      .ready()
-      .then(() => console.log("FX1 Mini App is ready on Base!"))
-      .catch((err) => console.error("Mini App ready error:", err));
-  }, []);
-
   return (
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+    <BaseProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/gallery" element={<Gallery />} />
@@ -58,7 +50,8 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </TooltipProvider>
+      </TooltipProvider>
+    </BaseProvider>
   );
 };
 

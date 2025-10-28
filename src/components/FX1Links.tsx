@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button3D } from "@/components/ui/Button3D";
 import { ExternalLink, Users, Gift, DollarSign } from "lucide-react";
-import { sdk } from "@farcaster/miniapp-sdk";
-import { checkTokenHolder } from "../utils/tokenHooks";
 
 const fx1Links = [
   {
@@ -26,19 +24,6 @@ const fx1Links = [
 ];
 
 export const FX1Links: React.FC = () => {
-  const [isHolder, setIsHolder] = useState(false);
-
-  useEffect(() => {
-    async function verifyHolder() {
-      const user = await sdk.users.getCurrentUser();
-      if (user?.address) {
-        const holder = await checkTokenHolder(user.address);
-        setIsHolder(holder);
-      }
-    }
-    verifyHolder();
-  }, []);
-
   return (
     <section className="py-12 border-t border-border/30">
       <div className="container mx-auto px-4 text-center">
@@ -58,12 +43,6 @@ export const FX1Links: React.FC = () => {
                 <div className="flex items-center space-x-3 mb-2">
                   {link.icon}
                   <span className="font-semibold text-lg">{link.name}</span>
-                  {/* Token holder badge on Flaunch link */}
-                  {link.name === "Token Group on Flaunch" && isHolder && (
-                    <span className="ml-2 px-2 py-0.5 bg-blue-600 text-white rounded-full text-xs font-semibold">
-                      Holder
-                    </span>
-                  )}
                 </div>
                 <p className="text-sm text-muted-foreground">{link.description}</p>
                 <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity mt-2" />
