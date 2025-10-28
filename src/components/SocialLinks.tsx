@@ -1,19 +1,29 @@
 import React from 'react';
 import { Button3D } from '@/components/ui/Button3D';
+import {
+  Twitter,
+  Farcaster,
+  MessageCircle,
+  Telegram,
+  Zap,
+  Spiral,
+  FileText,
+  Diamond
+} from 'lucide-react';
 import { ExternalLink } from 'lucide-react';
 
 const socialLinks = [
-  { name: 'X (Twitter)', url: 'https://x.com/fx1_hubs?s=21', icon: '𝕏' },
-  { name: 'Farcaster', url: 'https://farcaster.xyz/fx1-faucet', icon: '🟣' },
-  { name: 'Telegram', url: 'https://t.me/fx1digitalhubs', icon: '✈️' },
-  { name: 'Discord', url: 'https://discord.gg/wPbsbmnk', icon: '💬' }
+  { name: 'X (Twitter)', url: 'https://x.com/fx1_hubs?s=21', icon: <Twitter size={20} /> },
+  { name: 'Farcaster', url: 'https://farcaster.xyz/fx1-faucet', icon: <Farcaster size={20} /> },
+  { name: 'Telegram', url: 'https://t.me/fx1digitalhubs', icon: <Telegram size={20} /> },
+  { name: 'Discord', url: 'https://discord.gg/wPbsbmnk', icon: <MessageCircle size={20} /> }
 ];
 
 const platformLinks = [
-  { name: 'Zora', url: 'https://zora.co/@fx1_hubs', icon: '⚡' },
-  { name: 'Manifold', url: 'https://manifold.xyz/@fx1hubs', icon: '🌀' },
-  { name: 'Blog', url: 'https://paragraph.com/@fx1hubs/fx1-digital-hubs', icon: '📝' },
-  { name: '$FDH Token', url: 'https://rainbow.me/token/base/0x1f85705d939Bb6Fa1AEbE99d7105AdCee75CE380', icon: '💎' }
+  { name: 'Zora', url: 'https://zora.co/@fx1_hubs', icon: <Zap size={20} /> },
+  { name: 'Manifold', url: 'https://manifold.xyz/@fx1hubs', icon: <Spiral size={20} /> },
+  { name: 'Blog', url: 'https://paragraph.com/@fx1hubs/fx1-digital-hubs', icon: <FileText size={20} /> },
+  { name: '$FDH Token', url: 'https://rainbow.me/token/base/0x1f85705d939Bb6Fa1AEbE99d7105AdCee75CE380', icon: <Diamond size={20} /> }
 ];
 
 export function SocialLinks() {
@@ -44,7 +54,7 @@ export function SocialLinks() {
                 >
                   <Button3D variant="social" className="w-full justify-between group">
                     <div className="flex items-center space-x-2">
-                      <span className="text-lg">{link.icon}</span>
+                      {link.icon}
                       <span>{link.name}</span>
                     </div>
                     <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -68,7 +78,7 @@ export function SocialLinks() {
                 >
                   <Button3D variant="social" className="w-full justify-between group">
                     <div className="flex items-center space-x-2">
-                      <span className="text-lg">{link.icon}</span>
+                      {link.icon}
                       <span className="text-sm">{link.name}</span>
                     </div>
                     <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
