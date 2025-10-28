@@ -3,31 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- Favicon & Manifest -->
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    
+
+    <!-- Page Info -->
     <title>FX1 Digital Hubs - Styling the Blockchain</title>
-    <meta name="description" content="FX1 DIGITAL HUBS brings the future of onchain fashion and digital creativity. Experience $FX1_HUBS & $FDH token utilities in a gamified, social mini app.">
+    <meta name="description" content="FX1 DIGITAL HUBS brings the future of onchain fashion and digital creativity. Explore $FX1_HUBS & $FDH token utilities in an interactive, gamified Base Mini App." />
     <meta name="author" content="FX1 Digital Hubs" />
 
     <!-- Open Graph / Base Mini App -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="FX1 Nebula Gallery" />
-    <meta property="og:description" content="Discover $FX1_HUBS & $FDH token utility while exploring digital fashion on Base." />
+    <meta property="og:description" content="Discover $FX1_HUBS & $FDH token utility while exploring digital fashion on Base. Unlock exclusive content with your tokens!" />
     <meta property="og:image" content="https://fx1-nebula-gallery.lovable.app/og.png" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="FX1 Nebula Gallery" />
-    <meta name="twitter:description" content="Experience Onchain Fashion & Utility" />
+    <meta name="twitter:description" content="Step into the future of onchain fashion and token utility." />
     <meta name="twitter:image" content="https://fx1-nebula-gallery.lovable.app/og.png" />
-</head>
+
+    <!-- Fallback theme / styling -->
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: #0f0f1a;
+        color: #f5f5f5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    </style>
+  </head>
 
   <body>
     <div id="root"></div>
+
+    <!-- Base Mini App SDK -->
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Optional analytics or helper scripts -->
+    <script>
+      console.log("Welcome to FX1 Nebula Gallery – powered by $FX1_HUBS & $FDH on Base.");
+    </script>
   </body>
 </html>
