@@ -11,10 +11,16 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "@components": "@/components",
+    "@ui": "@/components/ui",
+    "@lib": "@/lib",
+    "@utils": "@/lib/utils",
+    "@hooks": "@/hooks",
+    "@assets": "@/assets",
+    "@styles": "@/styles"
+  },
+  "notes": {
+    "description": "Configured for FX1 Base Mini App with TSX, TailwindCSS, and ShadCN components.",
+    "recommendation": "Use '@assets' for images/CIDs and '@styles' for additional CSS or animations."
   }
 }
