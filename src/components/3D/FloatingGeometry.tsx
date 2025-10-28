@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Mesh } from 'three';
+import { Mesh, Color } from 'three';
 
 function FloatingCube({ position, scale, speed }: { position: [number, number, number], scale: number, speed: number }) {
   const meshRef = useRef<Mesh>(null);
@@ -17,9 +17,9 @@ function FloatingCube({ position, scale, speed }: { position: [number, number, n
     <mesh ref={meshRef} position={position} scale={scale}>
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial 
-        color="#3b82f6" 
-        emissive="#1e40af" 
-        emissiveIntensity={0.2}
+        color="#1e3a8a" 
+        emissive="#2563eb" 
+        emissiveIntensity={0.4}
         transparent
         opacity={0.7}
         wireframe
@@ -41,11 +41,11 @@ function FloatingSphere({ position, scale, speed }: { position: [number, number,
 
   return (
     <mesh ref={meshRef} position={position} scale={scale}>
-      <sphereGeometry args={[1, 16, 16]} />
+      <sphereGeometry args={[1, 32, 32]} />
       <meshStandardMaterial 
-        color="#06b6d4" 
-        emissive="#0891b2" 
-        emissiveIntensity={0.3}
+        color="#0ea5e9" 
+        emissive="#0284c7" 
+        emissiveIntensity={0.5}
         transparent
         opacity={0.6}
         wireframe
@@ -57,16 +57,24 @@ function FloatingSphere({ position, scale, speed }: { position: [number, number,
 export function FloatingGeometry() {
   return (
     <div className="absolute inset-0 w-full h-full">
-      <Canvas camera={{ position: [0, 0, 15], fov: 60 }}>
-        <ambientLight intensity={0.1} />
-        <pointLight position={[10, 10, 10]} intensity={0.5} color="#3b82f6" />
-        <pointLight position={[-10, -10, -10]} intensity={0.3} color="#06b6d4" />
-        
+      <Canvas
+        camera={{ position: [0, 0, 20], fov: 60 }}
+        style={{ background: '#0f172a' }}
+        shadows
+      >
+        {/* Fog for depth */}
+        <fog attach="fog" args={['#0f172a', 10, 50]} />
+
+        {/* Lights */}
+        <ambientLight intensity={0.2} />
+        <pointLight position={[15, 10, 10]} intensity={0.6} color="#3b82f6" />
+        <pointLight position={[-15, -10, -10]} intensity={0.4} color="#06b6d4" />
+
         {/* Floating cubes */}
-        <FloatingCube position={[-8, 2, 0]} scale={0.8} speed={0.01} />
+        <FloatingCube position={[-8, 2, 0]} scale={1} speed={0.01} />
         <FloatingCube position={[8, -2, -2]} scale={1.2} speed={0.008} />
         <FloatingCube position={[0, 4, -5]} scale={0.6} speed={0.012} />
-        
+
         {/* Floating spheres */}
         <FloatingSphere position={[6, 3, -3]} scale={0.5} speed={0.015} />
         <FloatingSphere position={[-6, -1, -1]} scale={0.7} speed={0.01} />
