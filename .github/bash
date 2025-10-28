@@ -1,0 +1,3 @@
+npm install @vercel/analytics
+# or with pnpm
+pnpm add @vercel/analytics
