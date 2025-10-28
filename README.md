@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+# FX1 Nebula Mini App 🌌
 
-## Project info
+**Styling the Blockchain | Powered by $FX1_HUBS & $FDH Tokens**
 
-**URL**: https://lovable.dev/projects/9a1187fd-3aee-4f04-8dfe-57e9cf085d4f
+Welcome to **FX1 Nebula Mini App**, an immersive onchain fashion and digital creativity hub built on **Base**. Explore, create, and interact with digital fashion while unlocking exclusive features using our **creator coin $FX1_HUBS** and utility token **$FDH**.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Project Overview
 
-**Use Lovable**
+FX1 Nebula Mini App is a **React + TypeScript Vite project** integrated with the **Base Mini App SDK**. It’s designed as a **gamified, token-powered social experience**, where users can:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9a1187fd-3aee-4f04-8dfe-57e9cf085d4f) and start prompting.
+- Explore digital fashion galleries.
+- Create and showcase their NFT art.
+- Participate in runways and fashion events.
+- Earn rewards, stake tokens, and access premium content.
+- Unlock features based on $FX1_HUBS / $FDH token holdings.
 
-Changes made via Lovable will be committed automatically to this repo.
+This app is fully optimized for **mobile and desktop**, ensuring smooth interaction with Base wallets and token utilities.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🎯 Features
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Onchain Fashion Experience:** Digital wardrobe, runway, and gallery powered by Base blockchain.
+- **Token Utility Integration:** Unlock exclusive features based on $FX1_HUBS & $FDH balances.
+- **Interactive Mini App:** Fast, responsive, and user-friendly interface.
+- **Gamified Experience:** Stake, trade, and earn rewards while exploring digital creativity.
+- **Social & Referral Systems:** Connect, share, and earn with your community.
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🛠 Tech Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- **Framework:** React 18 + TypeScript
+- **Bundler:** Vite
+- **Routing:** React Router DOM
+- **UI & Animations:** ShadCN UI, Radix UI, Sonner, TailwindCSS
+- **3D & Graphics:** React Three Fiber, Drei, Three.js
+- **Web3 & Tokens:** Base Mini App SDK, Viem, Wagmi, Thirdweb
+- **State & Data:** React Query, Zod, Supabase
+- **Wallet Integration:** Coinbase Wallet, RainbowKit
+- **Deployment:** Vercel
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## ⚡ Base Mini App Integration
 
-**Edit a file directly in GitHub**
+This mini app is fully integrated with **Base Mini App SDK**. Key integration steps:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```ts
+import { sdk } from '@farcaster/miniapp-sdk';
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9a1187fd-3aee-4f04-8dfe-57e9cf085d4f) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+useEffect(() => {
+  sdk.actions.ready()
+    .then(() => console.log("FX1 Mini App is live on Base!"))
+    .catch(console.error);
+}, []);
