@@ -1,20 +1,15 @@
 import { sdk } from "@farcaster/miniapp-sdk";
 
-// Example token utility functions
+// Your $FDH / $FX1_HUBS token contract address
+export const FX1_TOKEN_ADDRESS = "0x24c42adfb620f3835fcb31fbdf3c1773fac76970";
 
-// Check if user holds your creator coin
-export async function checkTokenBalance(userAddress: string, tokenAddress: string) {
+// Check if user holds the token
+export async function checkTokenHolder(userAddress: string) {
   try {
-    const balance = await sdk.tokens.getBalance(userAddress, tokenAddress);
-    return balance;
+    const balance = await sdk.tokens.getBalance(userAddress, FX1_TOKEN_ADDRESS);
+    return balance > 0;
   } catch (err) {
     console.error("Error checking token balance:", err);
-    return 0;
+    return false;
   }
-}
-
-// Unlock a feature if balance > 0
-export async function canAccessFeature(userAddress: string, tokenAddress: string) {
-  const balance = await checkTokenBalance(userAddress, tokenAddress);
-  return balance > 0;
 }
