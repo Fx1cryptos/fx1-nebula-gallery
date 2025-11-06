@@ -1,4 +1,17 @@
-
+{
+  "frame": {
+    "name": "FX1 Nebula Gallery",
+    "iconUrl": "https://fx1-nebula-miniapp.onrender.com/icon.png",
+    "homeUrl": "https://fx1-nebula-miniapp.onrender.com",
+    "imageUrl": "https://fx1-nebula-miniapp.onrender.com/og.png",
+    "buttonTitle": "Enter Nebula",
+    "description": "Stake $FX1_HUBS. Style the metaverse. 🌌",
+    "primaryCategory": "social",
+    "tags": ["onchain", "fashion", "base", "farcaster"]
+  },
+  "requiredChains": ["eip155:8453"],
+  "requiredCapabilities": ["wallet", "notifications"],
   "baseBuilder": {
     "ownerAddress": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620"
   }
+}
