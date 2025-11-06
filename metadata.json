@@ -1,6 +1,6 @@
 {
   "name": "FX1 Hubs Nebula",
-  "description": "Styling the Blockchain Metaverse — a creative Base mini app showcasing NFT fashion, art, and culture through the FX1 Digital Hubs experience.",
+  "description": "A creative Base mini app showcasing NFT fashion, art, and culture through the FX1 Digital Hubs experience. Explore, play, and mint NFTs in a gamified, on-chain environment.",
   "app_url": "https://fx1-hubs-nebula.onrender.com",
   "category": "creative",
   "chains": ["base"],
@@ -15,6 +15,9 @@
     "x": "https://x.com/fx1hubs",
     "warpcast": "https://warpcast.com/olamsfx1"
   },
-  "tags": ["Farcaster", "Base", "NFT", "Web3 Fashion", "Mini App", "Creative Gallery"],
-  "license": "MIT"
+  "tags": ["Farcaster", "Base", "NFT", "Web3 Fashion", "Mini App", "Creative Gallery", "Play-to-Earn", "Onchain"],
+  "license": "MIT",
+  "baseBuilder": {
+    "ownerAddress": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620"
+  }
 }
