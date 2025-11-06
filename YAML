@@ -1,0 +1,14 @@
+# render.yaml
+services:
+  - type: web
+    name: fx1-nebula-miniapp
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /**
+        destination: /index.html
+
+    # Optional: Custom domain later
+    # domain: nebula.fx1hubs.com
