@@ -6,7 +6,7 @@
   "tailwind": {
     "config": "tailwind.config.ts",
     "css": "src/index.css",
-    "baseColor": "slate",
+    "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
   },
@@ -17,10 +17,12 @@
     "@utils": "@/lib/utils",
     "@hooks": "@/hooks",
     "@assets": "@/assets",
-    "@styles": "@/styles"
+    "@styles": "@/styles",
+    "@game": "@/components/game",
+    "@tasks": "@/components/tasks"
   },
   "notes": {
-    "description": "Configured for FX1 Base Mini App with TSX, TailwindCSS, and ShadCN components.",
-    "recommendation": "Use '@assets' for images/CIDs and '@styles' for additional CSS or animations."
+    "description": "FX1 Nebula Gallery — Farcaster Mini App on Base. Uses ShadCN, TailwindCSS, Vite + React. Optimized for token-gated games & minting.",
+    "recommendation": "Use @game for minting mini-games, @tasks for social quests, @assets for NFTs/IPFS CIDs, @styles for royal/gold animations."
   }
 }
