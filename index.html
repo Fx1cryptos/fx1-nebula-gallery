@@ -4,52 +4,114 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     
-    <!-- Favicon & Manifest -->
+    <!-- Favicon & PWA -->
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#1e40af" />
 
     <!-- Page Info -->
-    <title>FX1 Digital Hubs - Styling the Blockchain</title>
-    <meta name="description" content="FX1 DIGITAL HUBS brings the future of onchain fashion and digital creativity. Explore $FX1_HUBS & $FDH token utilities in an interactive, gamified Base Mini App." />
-    <meta name="author" content="FX1 Digital Hubs" />
+    <title>FX1 Nebula Gallery – Style the Blockchain</title>
+    <meta name="description" content="FX1 Nebula Gallery: Onchain fashion, gamified token utility, and surreal NFT art. Powered by $FX1_HUBS & $FDH on Base." />
+    <meta name="author" content="@fx1_hubs" />
 
-    <!-- Open Graph / Base Mini App -->
+    <!-- Open Graph / Farcaster Mini App -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="FX1 Nebula Gallery" />
-    <meta property="og:description" content="Discover $FX1_HUBS & $FDH token utility while exploring digital fashion on Base. Unlock exclusive content with your tokens!" />
-    <meta property="og:image" content="https://fx1-nebula-gallery.lovable.app/og.png" />
+    <meta property="og:description" content="Play Mint Crush, earn $FX1_HUBS, unlock exclusive NFT fashion. Token-gated creativity on Base." />
+    <meta property="og:image" content="https://fx1-nebula-miniapp.onrender.com/og.png" />
+    <meta property="og:url" content="https://fx1-nebula-miniapp.onrender.com" />
+    <meta property="og:site_name" content="FX1 Nebula Gallery" />
 
-    <!-- Twitter -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="FX1 Nebula Gallery" />
-    <meta name="twitter:description" content="Step into the future of onchain fashion and token utility." />
-    <meta name="twitter:image" content="https://fx1-nebula-gallery.lovable.app/og.png" />
+    <meta name="twitter:title" content="FX1 Nebula Gallery – $FX1_HUBS Mini App" />
+    <meta name="twitter:description" content="Match CROWNS. Mint tokens. Style the metaverse. Live on Base." />
+    <meta name="twitter:image" content="https://fx1-nebula-miniapp.onrender.com/og.png" />
+    <meta name="twitter:creator" content="@fx1_hubs" />
 
-    <!-- Fallback theme / styling -->
+    <!-- Farcaster Mini App Hints -->
+    <meta name="fc:frame" content="vNext" />
+    <meta name="fc:frame:image" content="https://fx1-nebula-miniapp.onrender.com/og.png" />
+    <meta name="fc:frame:button:1" content="Enter Nebula" />
+    <meta name="fc:frame:button:1:action" content="link" />
+    <meta name="fc:frame:button:1:target" content="https://fx1-nebula-miniapp.onrender.com/mint-crush" />
+
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/src/main.tsx" as="script" />
+
+    <!-- Global Styles -->
     <style>
+      :root {
+        --royal: #1e40af;
+        --gold: #fbbf24;
+        --navy: #172554;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
-        font-family: 'Inter', sans-serif;
-        background: #0f0f1a;
-        color: #f5f5f5;
+        padding: 0;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background: linear-gradient(135deg, var(--navy) 0%, #0a0a14 100%);
+        color: var(--white);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        overscroll-behavior: none;
+        touch-action: manipulation;
       }
+
+      #root {
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Hide scrollbar but allow scroll */
+      ::-webkit-scrollbar { display: none; }
+      body { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
+
+    <!-- Inter Font (Self-hosted or CDN) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
 
   <body>
     <div id="root"></div>
 
-    <!-- Base Mini App SDK -->
+    <!-- Vite + React Entry -->
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Optional analytics or helper scripts -->
+    <!-- Base Mini App SDK Ready Signal -->
+    <script type="module">
+      import { sdk } from '@farcaster/miniapp-sdk';
+
+      document.addEventListener('DOMContentLoaded', async () => {
+        try {
+          await sdk.actions.ready();
+          console.log('FX1 Nebula Mini App ready on Farcaster');
+        } catch (err) {
+          console.warn('SDK not in mini-app context');
+        }
+      });
+    </script>
+
+    <!-- Debug / Welcome -->
     <script>
-      console.log("Welcome to FX1 Nebula Gallery – powered by $FX1_HUBS & $FDH on Base.");
+      if (window.location.hostname.includes('localhost') || window.location.hostname.includes('render')) {
+        console.log('%c FX1 Nebula Gallery %c Ready to mint $FX1_HUBS ', 
+          'background: #fbbf24; color: #172554; padding: 4px 8px; border-radius: 4px; font-weight: bold;',
+          'background: #1e40af; color: #fbbf24; padding: 4px 8px; border-radius: 4px;'
+        );
+      }
     </script>
   </body>
 </html>
