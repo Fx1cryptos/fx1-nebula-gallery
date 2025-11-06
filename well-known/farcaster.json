@@ -1,3 +1,7 @@
+# Step 3: Update Farcaster metadata automatically
+echo "📝 Updating well-known/farcaster.json..."
+mkdir -p well-known
+cat > well-known/farcaster.json <<EOL
 {
   "frame": {
     "name": "FX1 Nebula Gallery",
@@ -5,7 +9,7 @@
     "homeUrl": "https://fx1-hubs-nebula.onrender.com",
     "imageUrl": "https://fx1-hubs-nebula.onrender.com/og.png",
     "buttonTitle": "Play & Mint",
-    "description": "Match crowns, mint $FX1_HUBS, and explore NFT fashion on Base.",
+    "description": "Match crowns, mint \$FX1_HUBS, and explore NFT fashion on Base.",
     "primaryCategory": "games",
     "tags": ["base", "farcaster", "nft", "play-to-earn", "fx1hubs"]
   },
@@ -22,7 +26,7 @@
     "splashImageUrl": "https://fx1-hubs-nebula.onrender.com/splash.png",
     "splashBackgroundColor": "#172554",
     "subtitle": "Styling the Blockchain Metaverse",
-    "description": "Play Mint Crush, earn $FX1_HUBS, and unlock exclusive NFT fashion. Token-gated creativity on Base.",
+    "description": "Play Mint Crush, earn \$FX1_HUBS, and unlock exclusive NFT fashion. Token-gated creativity on Base.",
     "screenshotUrls": [
       "https://fx1-hubs-nebula.onrender.com/screenshot-1.png",
       "https://fx1-hubs-nebula.onrender.com/screenshot-2.png"
@@ -31,9 +35,10 @@
     "tags": ["FX1", "miniapp", "NFT", "Base", "blockchain", "digital fashion", "play-to-earn"],
     "heroImageUrl": "https://fx1-hubs-nebula.onrender.com/hero.png",
     "tagline": "Match. Mint. Style the Metaverse.",
-    "ogTitle": "FX1 Nebula Gallery – Play & Mint $FX1_HUBS",
-    "ogDescription": "Match crowns in Mint Crush to mint $FX1_HUBS. Experience on-chain fashion and gamified utility.",
+    "ogTitle": "FX1 Nebula Gallery – Play & Mint \$FX1_HUBS",
+    "ogDescription": "Match crowns in Mint Crush to mint \$FX1_HUBS. Experience on-chain fashion and gamified utility.",
     "ogImageUrl": "https://fx1-hubs-nebula.onrender.com/og.png",
     "noindex": false
   }
 }
+EOL
