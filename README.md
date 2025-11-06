@@ -1,58 +1,44 @@
-# FX1 Nebula Mini App 🌌
+# FX1 Nebula Gallery 🌌
 
-**Styling the Blockchain | Powered by $FX1_HUBS & $FDH Tokens**
+**Styling the Blockchain** — Powered by **$FX1_HUBS** & **$FDH**
 
-Welcome to **FX1 Nebula Mini App**, an immersive onchain fashion and digital creativity hub built on **Base**. Explore, create, and interact with digital fashion while unlocking exclusive features using our **creator coin $FX1_HUBS** and utility token **$FDH**.
-
----
-
-## 🚀 Project Overview
-
-FX1 Nebula Mini App is a **React + TypeScript Vite project** integrated with the **Base Mini App SDK**. It’s designed as a **gamified, token-powered social experience**, where users can:
-
-- Explore digital fashion galleries.
-- Create and showcase their NFT art.
-- Participate in runways and fashion events.
-- Earn rewards, stake tokens, and access premium content.
-- Unlock features based on $FX1_HUBS / $FDH token holdings.
-
-This app is fully optimized for **mobile and desktop**, ensuring smooth interaction with Base wallets and token utilities.
+[![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Fx1cryptos/fx1-nebula-gallery)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+[![Base Chain](https://img.shields.io/badge/Chain-Base-005FFF?logo=base&logoColor=white)](https://base.org)  
+[![Farcaster Verified](https://img.shields.io/badge/Farcaster-Verified-7B3FE4?logo=farcaster&logoColor=white)](https://warpcast.com/fx1_hubs)
 
 ---
 
-## 🎯 Features
+## 🚀 Overview
 
-- **Onchain Fashion Experience:** Digital wardrobe, runway, and gallery powered by Base blockchain.
-- **Token Utility Integration:** Unlock exclusive features based on $FX1_HUBS & $FDH balances.
-- **Interactive Mini App:** Fast, responsive, and user-friendly interface.
-- **Gamified Experience:** Stake, trade, and earn rewards while exploring digital creativity.
-- **Social & Referral Systems:** Connect, share, and earn with your community.
+**FX1 Nebula Gallery** is a **verified Farcaster Mini App** built on **Base**, delivering an immersive onchain fashion and digital creativity experience. Users explore 3D galleries, mint surreal NFT wearables, participate in virtual runways, and unlock exclusive features via **$FX1_HUBS** (creator coin) and **$FDH** (utility token).
+
+This app integrates **token-gated access**, **staking rewards**, and **social quests** — turning passive holding into active participation in a collective intelligence-driven metaverse.
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|-------|-----------|
+| **3D Digital Wardrobe** | Powered by React Three Fiber & Drei |
+| **Token-Gated Access** | Unlock content with $FX1_HUBS / $FDH balances |
+| **Flaunch Staking Pool** | Earn yields in the **FX1 Flux Vault** |
+| **Interactive Runways** | Host & vote on AI-generated fashion events |
+| **Social & Referral System** | Share, collaborate, earn rewards |
+| **Mobile-First UI** | Built with Respo, ShadCN, TailwindCSS |
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Framework:** React 18 + TypeScript
-- **Bundler:** Vite
-- **Routing:** React Router DOM
-- **UI & Animations:** ShadCN UI, Radix UI, Sonner, TailwindCSS
-- **3D & Graphics:** React Three Fiber, Drei, Three.js
-- **Web3 & Tokens:** Base Mini App SDK, Viem, Wagmi, Thirdweb
-- **State & Data:** React Query, Zod, Supabase
-- **Wallet Integration:** Coinbase Wallet, RainbowKit
-- **Deployment:** Vercel
-
----
-
-## ⚡ Base Mini App Integration
-
-This mini app is fully integrated with **Base Mini App SDK**. Key integration steps:
-
-```ts
-import { sdk } from '@farcaster/miniapp-sdk';
-
-useEffect(() => {
-  sdk.actions.ready()
-    .then(() => console.log("FX1 Mini App is live on Base!"))
-    .catch(console.error);
-}, []);
+```text
+Framework:     React 18 + TypeScript
+Bundler:       Vite
+Routing:       React Router DOM
+UI:            ShadCN, Radix UI, Sonner, TailwindCSS
+3D Graphics:   React Three Fiber, Drei, Three.js
+Web3:          Base Mini App SDK, Viem, Wagmi, Thirdweb
+State:         React Query, Zod, Supabase
+Wallet:        Coinbase Wallet, RainbowKit
+Deployment:    Render (auto-deploy from GitHub)
