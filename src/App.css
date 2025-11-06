@@ -1,42 +1,116 @@
 #root {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: clamp(1rem, 4vw, 3rem);
   text-align: center;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--gradient-hero);
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Subtle geometric grid overlay */
+#root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(hsl(var(--royal) / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--royal) / 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+/* Logo – Royal Crown Glow */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: clamp(5rem, 12vw, 8rem);
+  padding: 1.5rem;
+  will-change: transform, filter;
+  transition: all 0.4s var(--transition-bounce);
+  filter: drop-shadow(0 0 20px hsl(var(--gold) / 0.4));
+  position: relative;
+  z-index: 1;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 40px hsl(var(--gold) / 0.8));
+  transform: translateY(-6px) scale(1.05);
 }
+
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 50px hsl(var(--royal) / 0.7));
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* Floating logo spin (reduced motion safe) */
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .logo {
+    animation: float-royal 6s ease-in-out infinite;
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes float-royal {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(4deg); }
 }
 
+/* Card – Token-Gated Luxury */
+.card {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: var(--radius);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  backdrop-blur-xl;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-royal);
+  border-color: hsl(var(--gold));
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-glow);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Docs Link – Subtle Royal */
 .read-the-docs {
-  color: #888;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.read-the-docs:hover {
+  color: hsl(var(--gold));
+  text-shadow: 0 0 10px hsl(var(--gold) / 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  #root {
+    padding: 1rem;
+  }
+  .logo {
+    height: 5rem;
+  }
 }
