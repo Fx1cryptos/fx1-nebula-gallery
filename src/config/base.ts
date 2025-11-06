@@ -20,7 +20,7 @@ export const BASE_CONFIG = {
   manifest: {
     version: '1',
     name: 'FX1 Nebula Gallery',
-    homeUrl: 'https://fx1-nebula-gallery.lovable.app',
+    homeUrl: 'https://fx1-hubs-nebula.onrender.com',
     subtitle: 'Styling the Blockchain',
     description: 'FX1 DIGITAL HUBS brings the future of onchain fashion and digital creativity. Experience $FX1_HUBS & $FDH token utilities in a gamified, social mini app.',
     primaryCategory: 'social',

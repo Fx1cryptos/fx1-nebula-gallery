@@ -23,16 +23,17 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { toast } from 'sonner';
 
-// ABI for your $FX1_HUBS ERC20 (mint function)
+// ABI for $FX1_HUBS ERC20 (mintWithFee function)
 const FX1_HUBS_ABI = [
   {
     "inputs": [
       { "name": "to", "type": "address" },
-      { "name": "amount", "type": "uint256" }
+      { "name": "amount", "type": "uint256" },
+      { "name": "feeMultiplier", "type": "uint256" }
     ],
-    "name": "mint",
+    "name": "mintWithFee",
     "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "payable",
     "type": "function"
   }
 ] as const;
@@ -187,11 +188,15 @@ export default function NFTMintCrush() {
     setIsMinting(true);
     
     try {
+      const amount = BigInt(mintableMatches * 100 * 10**18); // 100 tokens per match
+      const feeMultiplier = BigInt(1); // Default fee multiplier
+      
       writeContract({
         address: FX1_HUBS_CA,
         abi: FX1_HUBS_ABI,
-        functionName: 'mint',
-        args: [address, BigInt(mintableMatches * 100 * 10**18)] // 100 tokens per match
+        functionName: 'mintWithFee',
+        args: [address, amount, feeMultiplier],
+        value: BigInt(0) // Payable function, set appropriate value if needed
       });
     } catch (error) {
       toast.error('Mint failed');

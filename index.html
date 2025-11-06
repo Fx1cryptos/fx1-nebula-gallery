@@ -21,23 +21,23 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="FX1 Nebula Gallery" />
     <meta property="og:description" content="Play Mint Crush, earn $FX1_HUBS, unlock exclusive NFT fashion. Token-gated creativity on Base." />
-    <meta property="og:image" content="https://fx1-nebula-miniapp.onrender.com/og.png" />
-    <meta property="og:url" content="https://fx1-nebula-miniapp.onrender.com" />
+    <meta property="og:image" content="https://fx1-hubs-nebula.onrender.com/og.png" />
+    <meta property="og:url" content="https://fx1-hubs-nebula.onrender.com" />
     <meta property="og:site_name" content="FX1 Nebula Gallery" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="FX1 Nebula Gallery – $FX1_HUBS Mini App" />
     <meta name="twitter:description" content="Match CROWNS. Mint tokens. Style the metaverse. Live on Base." />
-    <meta name="twitter:image" content="https://fx1-nebula-miniapp.onrender.com/og.png" />
+    <meta name="twitter:image" content="https://fx1-hubs-nebula.onrender.com/og.png" />
     <meta name="twitter:creator" content="@fx1_hubs" />
 
     <!-- Farcaster Mini App Hints -->
     <meta name="fc:frame" content="vNext" />
-    <meta name="fc:frame:image" content="https://fx1-nebula-miniapp.onrender.com/og.png" />
+    <meta name="fc:frame:image" content="https://fx1-hubs-nebula.onrender.com/og.png" />
     <meta name="fc:frame:button:1" content="Enter Nebula" />
     <meta name="fc:frame:button:1:action" content="link" />
-    <meta name="fc:frame:button:1:target" content="https://fx1-nebula-miniapp.onrender.com/mint-crush" />
+    <meta name="fc:frame:button:1:target" content="https://fx1-hubs-nebula.onrender.com/mint-crush" />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/src/main.tsx" as="script" />
@@ -90,17 +90,10 @@
     <!-- Vite + React Entry -->
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Base Mini App SDK Ready Signal -->
+    <!-- Mini App Ready Signal -->
     <script type="module">
-      import { sdk } from '@farcaster/miniapp-sdk';
-
-      document.addEventListener('DOMContentLoaded', async () => {
-        try {
-          await sdk.actions.ready();
-          console.log('FX1 Nebula Mini App ready on Farcaster');
-        } catch (err) {
-          console.warn('SDK not in mini-app context');
-        }
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log('FX1 Nebula Mini App ready');
       });
     </script>
 
