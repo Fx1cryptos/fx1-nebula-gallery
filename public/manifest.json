@@ -1,5 +1,13 @@
 {
   "name": "FX1 Hubs Nebula",
+  "description": "Styling the Blockchain Metaverse — NFT gallery built on Base",
+  "icon": "https://fx1-hubs-nebula.onrender.com/placeholder.svg",
+  "baseBuilder": {
+    "ownerAddress": "0x5f188E67C374feF892Cc3BaC4aE0689166C6a620"
+  }
+}
+{
+  "name": "FX1 Hubs Nebula",
   "short_name": "FX1 Nebula",
   "description": "Styling the Blockchain Metaverse — a Base Mini App by FX1 Hubs for NFT fashion and creative culture.",
   "start_url": "/",
