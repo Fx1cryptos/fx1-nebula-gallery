@@ -2,26 +2,26 @@ import React from 'react';
 import { Button3D } from '@/components/ui/Button3D';
 import {
   Twitter,
-  Farcaster,
   MessageCircle,
-  Telegram,
   Zap,
-  Spiral,
   FileText,
-  Diamond
+  Diamond,
+  Send,
+  Hexagon,
+  Hash
 } from 'lucide-react';
 import { ExternalLink } from 'lucide-react';
 
 const socialLinks = [
   { name: 'X (Twitter)', url: 'https://x.com/fx1_hubs?s=21', icon: <Twitter size={20} /> },
-  { name: 'Farcaster', url: 'https://farcaster.xyz/fx1-faucet', icon: <Farcaster size={20} /> },
-  { name: 'Telegram', url: 'https://t.me/fx1digitalhubs', icon: <Telegram size={20} /> },
+  { name: 'Farcaster', url: 'https://farcaster.xyz/fx1-faucet', icon: <Hash size={20} /> },
+  { name: 'Telegram', url: 'https://t.me/fx1digitalhubs', icon: <Send size={20} /> },
   { name: 'Discord', url: 'https://discord.gg/wPbsbmnk', icon: <MessageCircle size={20} /> }
 ];
 
 const platformLinks = [
   { name: 'Zora', url: 'https://zora.co/@fx1_hubs', icon: <Zap size={20} /> },
-  { name: 'Manifold', url: 'https://manifold.xyz/@fx1hubs', icon: <Spiral size={20} /> },
+  { name: 'Manifold', url: 'https://manifold.xyz/@fx1hubs', icon: <Hexagon size={20} /> },
   { name: 'Blog', url: 'https://paragraph.com/@fx1hubs/fx1-digital-hubs', icon: <FileText size={20} /> },
   { name: '$FDH Token', url: 'https://rainbow.me/token/base/0x1f85705d939Bb6Fa1AEbE99d7105AdCee75CE380', icon: <Diamond size={20} /> }
 ];

@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { base } from 'wagmi/chains';
 import { useAccount, useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
 import { format } from 'date-fns';
 import { 
@@ -65,7 +66,7 @@ const TILE_TYPES = [
 ];
 
 export default function NFTMintCrush() {
-  const { address, isConnected } = useAccount();
+  const { address, isConnected, chain } = useAccount();
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(90);
   const [gameActive, setGameActive] = useState(false);
@@ -182,23 +183,25 @@ export default function NFTMintCrush() {
     }
   };
 
-  const mintNFT = async () => {
-    if (!address || mintableMatches === 0) return;
+  const mintNFT = () => {
+    if (!address || mintableMatches === 0 || !chain) return;
     
     setIsMinting(true);
     
     try {
-      const amount = BigInt(mintableMatches * 100 * 10**18); // 100 tokens per match
-      const feeMultiplier = BigInt(1); // Default fee multiplier
+      const amount = BigInt(mintableMatches * 100 * 10**18);
+      const feeMultiplier = BigInt(1);
       
       writeContract({
         address: FX1_HUBS_CA,
         abi: FX1_HUBS_ABI,
         functionName: 'mintWithFee',
         args: [address, amount, feeMultiplier],
-        value: BigInt(0) // Payable function, set appropriate value if needed
+        account: address,
+        chain: base
       });
     } catch (error) {
+      console.error('Mint error:', error);
       toast.error('Mint failed');
       setIsMinting(false);
     }

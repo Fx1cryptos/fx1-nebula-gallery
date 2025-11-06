@@ -43,3 +43,6 @@ export function FX1FloatingScene() {
     </div>
   );
 }
+
+// Export alias for backward compatibility
+export { FX1FloatingScene as FloatingGeometry };
