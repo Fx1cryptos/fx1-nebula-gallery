@@ -1,10 +1,10 @@
 # render.yaml
 services:
   - type: web
-    name: fx1-nebula-miniapp
+    name: fx1-hubs-nebula
     env: static
-    buildCommand: npm ci && npm run build
-    staticPublishPath: ./dist
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
     routes:
       - type: rewrite
         source: /**
