@@ -2,175 +2,231 @@
 @tailwind components;
 @tailwind utilities;
 
-/* FX1 Digital Hubs - Futuristic NFT Marketplace Design System */
+/* ============================================= */
+/* 1. ROYAL DESIGN SYSTEM – CSS VARIABLES        */
+/* ============================================= */
 
 @layer base {
   :root {
-    /* Base Theme - Dark Metaverse */
-    --background: 220 45% 4%;
-    --foreground: 210 40% 98%;
+    /* Core Palette – Royal Elegance */
+    --royal: 221 73% 37%;        /* #1e40af – Royal Blue */
+    --gold: 45 94% 57%;          /* #fbbf24 – 24K Gold */
+    --navy: 220 70% 12%;         /* #172554 – Deep Navy */
+    --white: 0 0% 98%;           /* #fafafa – Pure White */
+    --black: 220 45% 4%;         /* #0f0f1a – Void Black */
 
-    /* Card Elements */
-    --card: 220 35% 8%;
-    --card-foreground: 210 40% 95%;
+    /* Background & Foreground */
+    --background: var(--navy);
+    --foreground: var(--white);
 
-    /* Popover */
-    --popover: 220 35% 8%;
-    --popover-foreground: 210 40% 95%;
+    /* UI Surfaces */
+    --card: 220 60% 14%;
+    --card-foreground: var(--white);
+    --popover: 220 60% 14%;
+    --popover-foreground: var(--white);
 
-    /* Primary - Neon Blue */
-    --primary: 217 91% 60%;
-    --primary-foreground: 220 45% 4%;
-    --primary-glow: 217 91% 75%;
+    /* Primary Action – Gold Glow */
+    --primary: var(--gold);
+    --primary-foreground: var(--navy);
+    --primary-glow: 45 94% 65%;
 
-    /* Secondary - Deep Blue */
-    --secondary: 220 35% 15%;
-    --secondary-foreground: 210 40% 95%;
+    /* Secondary – Royal Depth */
+    --secondary: var(--royal);
+    --secondary-foreground: var(--white);
 
-    /* Muted Elements */
-    --muted: 220 35% 12%;
-    --muted-foreground: 215 15% 65%;
+    /* Accents & Muted */
+    --accent: 221 91% 60%;       /* Electric Royal */
+    --accent-foreground: var(--white);
+    --muted: 220 50% 18%;
+    --muted-foreground: 210 20% 75%;
 
-    /* Accent - Electric Blue */
-    --accent: 217 91% 60%;
-    --accent-foreground: 220 45% 4%;
-
-    /* Destructive */
+    /* Feedback */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: var(--white);
 
-    /* Borders & Inputs */
-    --border: 220 35% 15%;
-    --input: 220 35% 12%;
-    --ring: 217 91% 60%;
+    /* Interactive Elements */
+    --border: 220 50% 20%;
+    --input: 220 50% 16%;
+    --ring: var(--gold);
 
-    /* Geometric Accents */
-    --neon-cyan: 187 100% 50%;
-    --neon-purple: 270 100% 70%;
-    --neon-pink: 320 100% 70%;
+    /* Radii & Shadows */
+    --radius: 1rem;
+    --shadow-card: 0 12px 32px hsl(220 70% 4% / 0.6);
+    --shadow-glow: 0 0 30px hsl(var(--gold) / 0.4);
+    --shadow-royal: 0 0 40px hsl(var(--royal) / 0.5);
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%), hsl(187, 100%, 50%));
-    --gradient-hero: linear-gradient(180deg, hsl(220, 45%, 4%) 0%, hsl(220, 35%, 8%) 50%, hsl(217, 91%, 15%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(220, 35%, 8%) 0%, hsl(220, 35%, 12%) 100%);
-    --gradient-glow: radial-gradient(circle at center, hsl(217, 91%, 60%, 0.3) 0%, transparent 70%);
+    --gradient-royal: linear-gradient(135deg, 
+      hsl(var(--royal)) 0%, 
+      hsl(221 91% 55%) 50%, 
+      hsl(var(--royal)) 100%
+    );
+    --gradient-gold: linear-gradient(135deg, 
+      hsl(var(--gold)) 0%, 
+      hsl(45 100% 70%) 100%
+    );
+    --gradient-hero: linear-gradient(180deg, 
+      hsl(var(--navy)) 0%, 
+      hsl(220 60% 10%) 50%, 
+      hsl(var(--royal)) 100%
+    );
+    --gradient-glow: radial-gradient(circle at center, 
+      hsl(var(--gold) / 0.3) 0%, 
+      transparent 70%
+    );
 
-    /* Shadows & Glows */
-    --shadow-neon: 0 0 30px hsl(217, 91%, 60%, 0.5);
-    --shadow-glow: 0 4px 20px hsl(217, 91%, 60%, 0.3);
-    --shadow-card: 0 8px 32px hsl(220, 45%, 2%, 0.8);
-
-    /* Animation Durations */
+    /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar (if used) */
+    --sidebar-background: 220 60% 14%;
+    --sidebar-foreground: var(--white);
+    --sidebar-primary: var(--gold);
+    --sidebar-primary-foreground: var(--navy);
+    --sidebar-accent: 221 73% 37%;
+    --sidebar-accent-foreground: var(--white);
+    --sidebar-border: 220 50% 20%;
+    --sidebar-ring: var(--gold);
   }
 
-  /* Dark theme inherits from root - this is our primary theme */
+  /* Dark Mode – Enhanced Depth */
   .dark {
-    /* Enhanced dark theme */
-    --background: 220 45% 2%;
-    --card: 220 35% 6%;
+    --background: 220 70% 8%;
+    --card: 220 60% 12%;
   }
 }
+
+/* ============================================= */
+/* 2. GLOBAL STYLES – Luxury Web3 Experience     */
+/* ============================================= */
 
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
 
   body {
     @apply bg-background text-foreground overflow-x-hidden;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--gradient-hero);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
   }
 
-  /* Futuristic scrollbar */
+  /* Royal Scrollbar – Gold Accent */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
   }
-
   ::-webkit-scrollbar-track {
-    background: hsl(var(--background));
+    background: hsl(var(--navy));
+    border-radius: 5px;
   }
-
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--accent)));
-    border-radius: 4px;
+    background: var(--gradient-gold);
+    border-radius: 5px;
+    border: 2px solid hsl(var(--navy));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--primary-glow)), hsl(var(--gold)));
+    box-shadow: 0 0 15px hsl(var(--gold) / 0.6);
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, hsl(var(--primary-glow)), hsl(var(--primary)));
+  /* Fullscreen Mini App */
+  #root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
   }
+
+  /* Hide native scrollbars */
+  ::-webkit-scrollbar { display: none; }
+  body { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
+/* ============================================= */
+/* 3. COMPONENT UTILITIES – Royal Animations     */
+/* ============================================= */
+
 @layer components {
-  /* Neon glow effects */
-  .neon-glow {
-    box-shadow: var(--shadow-neon);
+  /* Gold Glow Button */
+  .btn-royal {
+    @apply relative overflow-hidden font-semibold transition-all duration-300;
+    background: var(--gradient-gold);
+    color: hsl(var(--navy));
+    border: 2px solid hsl(var(--gold));
+    box-shadow: var(--shadow-glow);
+  }
+  .btn-royal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px hsl(var(--gold) / 0.6);
+  }
+  .btn-royal::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity;
+    background: radial-gradient(circle at center, white 0%, transparent 70%);
+  }
+  .btn-royal:active::before {
+    @apply opacity-30;
   }
 
-  .hover-glow {
+  /* Royal Card – Floating */
+  .card-royal {
+    @apply relative overflow-hidden rounded-xl backdrop-blur-xl;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
     transition: var(--transition-smooth);
   }
-
-  .hover-glow:hover {
-    box-shadow: var(--shadow-glow);
-    transform: translateY(-2px);
+  .card-royal:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-royal);
+    border-color: hsl(var(--gold));
   }
 
-  /* Floating animation */
-  .float-animation {
-    animation: float 3s ease-in-out infinite;
+  /* Floating Orb Animation */
+  .float-royal {
+    animation: float-royal 4s ease-in-out infinite;
+  }
+  @keyframes float-royal {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
+  /* Pulse Glow – $FX1_HUBS Mint */
+  .pulse-gold {
+    animation: pulse-gold 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--gold) / 0.3); }
+    50% { box-shadow: 0 0 50px hsl(var(--gold) / 0.7); }
   }
 
-  /* Pulse glow */
-  .pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary), 0.3); }
-    50% { box-shadow: 0 0 40px hsl(var(--primary), 0.6); }
-  }
-
-  /* Geometric shapes */
-  .geometric-bg {
-    background: var(--gradient-hero);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .geometric-bg::before {
+  /* Hero Gradient Overlay */
+  .hero-glow::before {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    @apply absolute inset-0 pointer-events-none;
     background: var(--gradient-glow);
-    pointer-events: none;
     z-index: 1;
+  }
+
+  /* Geometric Grid Background */
+  .grid-royal {
+    background-image: 
+      linear-gradient(hsl(var(--royal) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--royal) / 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center;
+  }
+
+  /* Token Gate Badge */
+  .badge-gated {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold;
+    background: linear-gradient(135deg, hsl(var(--royal)), hsl(var(--gold)));
+    color: hsl(var(--navy));
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.4);
   }
 }
