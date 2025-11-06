@@ -5,7 +5,7 @@
     "homeUrl": "https://fx1-hubs-nebula.onrender.com",
     "imageUrl": "https://fx1-hubs-nebula.onrender.com/og.png",
     "buttonTitle": "Play & Mint",
-    "description": "Match CROWNS → Mint $FX1_HUBS. NFT mining on Base.",
+    "description": "Match crowns, mint $FX1_HUBS, and explore NFT fashion on Base.",
     "primaryCategory": "games",
     "tags": ["base", "farcaster", "nft", "play-to-earn", "fx1hubs"]
   },
@@ -21,8 +21,8 @@
     "iconUrl": "https://fx1-hubs-nebula.onrender.com/favicon.png",
     "splashImageUrl": "https://fx1-hubs-nebula.onrender.com/splash.png",
     "splashBackgroundColor": "#172554",
-    "subtitle": "Styling the Blockchain",
-    "description": "Play Mint Crush, earn $FX1_HUBS, unlock exclusive NFT fashion. Token-gated creativity on Base.",
+    "subtitle": "Styling the Blockchain Metaverse",
+    "description": "Play Mint Crush, earn $FX1_HUBS, and unlock exclusive NFT fashion. Token-gated creativity on Base.",
     "screenshotUrls": [
       "https://fx1-hubs-nebula.onrender.com/screenshot-1.png",
       "https://fx1-hubs-nebula.onrender.com/screenshot-2.png"
@@ -32,7 +32,7 @@
     "heroImageUrl": "https://fx1-hubs-nebula.onrender.com/hero.png",
     "tagline": "Match. Mint. Style the Metaverse.",
     "ogTitle": "FX1 Nebula Gallery – Play & Mint $FX1_HUBS",
-    "ogDescription": "Match CROWNS in Mint Crush to mint real $FX1_HUBS. Onchain fashion, gamified utility.",
+    "ogDescription": "Match crowns in Mint Crush to mint $FX1_HUBS. Experience on-chain fashion and gamified utility.",
     "ogImageUrl": "https://fx1-hubs-nebula.onrender.com/og.png",
     "noindex": false
   }
