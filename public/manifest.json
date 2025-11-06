@@ -1,24 +1,23 @@
+// public/manifest.json
 {
-  "miniapp": {
-    "version": "1",
-    "name": "FX1 Nebula Gallery",
-    "homeUrl": "https://fx1-nebula-gallery.lovable.app",
-    "iconUrl": "https://fx1-nebula-gallery.lovable.app/logo.png",
-    "splashImageUrl": "https://fx1-nebula-gallery.lovable.app/logo.png",
-    "splashBackgroundColor": "#001F3F",
-    "subtitle": "Styling the Blockchain",
-    "description": "FX1 DIGITAL HUBS brings the future of onchain fashion and digital creativity. Experience $FX1_HUBS & $FDH token utilities in a gamified, social mini app.",
-    "screenshotUrls": [],
-    "primaryCategory": "social",
-    "tags": ["FX1", "miniapp", "NFT", "Base", "blockchain", "digital fashion"],
-    "heroImageUrl": "https://fx1-nebula-gallery.lovable.app/logo.png",
-    "tagline": "Experience Onchain Fashion & Utility",
-    "ogTitle": "FX1 Nebula Gallery",
-    "ogDescription": "Discover $FX1_HUBS & $FDH token utility while exploring digital fashion on Base.",
-    "ogImageUrl": "https://fx1-nebula-gallery.lovable.app/logo.png",
-    "noindex": false
-  },
-  "baseBuilder": {
-    "allowedAddresses": ["0x5f188E67C374feF892Cc3BaC4aE0689166C6a620"]
-  }
+  "name": "FX1 Nebula Gallery",
+  "short_name": "FX1 Nebula",
+  "description": "Play-to-earn fashion mini-app. Mint $FX1_HUBS on Base.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#172554",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
