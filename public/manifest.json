@@ -1,22 +1,37 @@
 {
-  "name": "FX1 Nebula Gallery",
+  "name": "FX1 Hubs Nebula",
   "short_name": "FX1 Nebula",
-  "description": "Play-to-earn fashion mini-app. Mint $FX1_HUBS on Base.",
+  "description": "Styling the Blockchain Metaverse — a Base Mini App by FX1 Hubs for NFT fashion and creative culture.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#172554",
-  "theme_color": "#1e40af",
-  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#0a0a0a",
   "icons": [
     {
-      "src": "/favicon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-512.png",
+      "src": "/icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "farcaster": {
+    "frame": {
+      "version": "1",
+      "name": "FX1 Hubs Nebula",
+      "icon": "https://fx1-hubs-nebula.onrender.com/icon.png",
+      "home_url": "https://fx1-hubs-nebula.onrender.com",
+      "description": "Explore NFT fashion and Base digital creativity with FX1 Hubs Nebula.",
+      "actions": [
+        {
+          "type": "link",
+          "label": "View on Base",
+          "url": "https://base.app/profile/olamsfx1"
+        },
+        {
+          "type": "link",
+          "label": "View on Zora",
+          "url": "https://zora.co/@fx1_hubs"
+        }
+      ]
+    }
+  }
 }
