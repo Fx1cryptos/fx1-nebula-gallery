@@ -1,7 +1,3 @@
-# Step 3: Update Farcaster metadata automatically
-echo "📝 Updating well-known/farcaster.json..."
-mkdir -p well-known
-cat > well-known/farcaster.json <<EOL
 {
   "frame": {
     "name": "FX1 Nebula Gallery",
