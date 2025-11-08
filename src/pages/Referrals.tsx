@@ -1,4 +1,4 @@
-FX1 Nebula Gallery: $FX1_HUBS Referral System
+// FX1 Nebula Gallery: $FX1_HUBS Referral System
 // Invite Friends → Earn 50 $FX1_HUBS per Valid Referral | Onchain Rewards
 
 import { useState, useEffect } from 'react';
@@ -43,7 +43,7 @@ const REWARD_PER_REF = 50; // $FX1_HUBS
 
 export default function Referrals() {
   const navigate = useNavigate();
-  const { address } = useAccount();
+  const { address, chain } = useAccount();
   const { writeContract } = useWriteContract();
 
   // State
@@ -121,7 +121,9 @@ export default function Referrals() {
         address: FX1_HUBS_CA,
         abi: FX1_HUBS_ABI,
         functionName: 'mintReferralReward',
-        args: [address, amount, refAddress]
+        args: [address as `0x${string}`, amount, refAddress as `0x${string}`],
+        account: address,
+        chain
       });
       setReferrals(prev => prev.map(r => 
         r.address === refAddress ? { ...r, claimed: true } : r
@@ -153,7 +155,7 @@ export default function Referrals() {
           <h1 className="text-2xl font-bold bg-gradient-to-r from-gold-400 to-white bg-clip-text text-transparent cursor-pointer" onClick={() => navigate('/')}>
             FX1 Referrals
           </h1>
-          <Button variant="hero" onClick={() => navigate('/')}>
+          <Button variant="outline" onClick={() => navigate('/')}>
             Back to Home
           </Button>
         </div>

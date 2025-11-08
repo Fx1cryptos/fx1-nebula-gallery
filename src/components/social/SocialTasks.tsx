@@ -1,4 +1,4 @@
-FX1 Nebula Gallery: Social Quest Hub
+// FX1 Nebula Gallery: Social Quest Hub
 // Earn $FX1_HUBS by Following, Joining, & Engaging | Weekly NFT Leaderboard
 
 import { useState, useEffect } from 'react';
@@ -75,7 +75,7 @@ const MOCK_LEADERBOARD: LeaderboardEntry[] = [
 ];
 
 export default function SocialTasks() {
-  const { address } = useAccount();
+  const { address, chain } = useAccount();
   const { writeContract } = useWriteContract();
 
   // State
@@ -124,7 +124,9 @@ export default function SocialTasks() {
         address: FX1_HUBS_CA,
         abi: FX1_HUBS_ABI,
         functionName: 'mintReward',
-        args: [address, rewardAmount, task]
+        args: [address as `0x${string}`, rewardAmount, task],
+        account: address,
+        chain
       });
       saveTask(task);
     } catch (error) {

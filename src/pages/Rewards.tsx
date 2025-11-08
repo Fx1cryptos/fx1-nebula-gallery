@@ -1,4 +1,4 @@
-FX1 Nebula: $FX1_HUBS + $FDH Rewards Hub
+// FX1 Nebula: $FX1_HUBS + $FDH Rewards Hub
 // Daily Streak, Wardrobe Boxes, Social Tasks, BaseApp Follow, Weekly NFTs
 
 import { useState, useEffect } from 'react';
@@ -71,7 +71,7 @@ const MOCK_STATS: UserStats = {
 
 export default function Rewards() {
   const navigate = useNavigate();
-  const { address } = useAccount();
+  const { address, chain } = useAccount();
   const { writeContract } = useWriteContract();
 
   // State
@@ -116,7 +116,9 @@ export default function Rewards() {
         address: FX1_HUBS_CA,
         abi: FX1_HUBS_ABI,
         functionName: 'mintReward',
-        args: [address, amount, 'daily-streak']
+        args: [address as `0x${string}`, amount, 'daily-streak'],
+        account: address,
+        chain
       });
 
       const newStats = {
@@ -153,7 +155,9 @@ export default function Rewards() {
         address: FX1_HUBS_CA,
         abi: FX1_HUBS_ABI,
         functionName: 'mintReward',
-        args: [address, amount, 'follow-baseapp']
+        args: [address as `0x${string}`, amount, 'follow-baseapp'],
+        account: address,
+        chain
       });
       setBaseAppFollowed(true);
       setStats(prev => ({
@@ -197,7 +201,7 @@ export default function Rewards() {
           <h1 className="text-2xl font-bold bg-gradient-to-r from-gold-400 to-white bg-clip-text text-transparent cursor-pointer" onClick={() => navigate('/')}>
             $FX1_HUBS Rewards
           </h1>
-          <Button variant="hero" onClick={() => navigate('/')}>
+          <Button variant="outline" onClick={() => navigate('/')}>
             Back to Home
           </Button>
         </div>

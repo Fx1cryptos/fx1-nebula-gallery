@@ -22,6 +22,8 @@ import Arena from "./pages/Arena";
 import FX1Flux from "./pages/FX1Flux";
 import Tokens from "./pages/Tokens";
 import MintCrush from "./pages/MintCrush"; // New: NFT Mint Game
+import CreatorDashboard from "./pages/CreatorDashboard"; // New: Creator Hub
+import FarcasterConnect from "./pages/FarcasterConnect"; // New: Farcaster Integration
 import NotFound from "./pages/NotFound";
 
 const App = () => {
@@ -50,6 +52,10 @@ const App = () => {
 
             {/* Play-to-Mint Game – NFT Mining */}
             <Route path="/mint-crush" element={<MintCrush />} />
+
+            {/* Creator & Social Hub */}
+            <Route path="/creator-dashboard" element={<CreatorDashboard />} />
+            <Route path="/farcaster" element={<FarcasterConnect />} />
 
             {/* Community & Rewards */}
             <Route path="/about" element={<About />} />

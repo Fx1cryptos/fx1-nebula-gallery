@@ -108,7 +108,7 @@ const MOCK_LEADERBOARD: LeaderboardEntry[] = [
 
 export default function Social() {
   const navigate = useNavigate();
-  const { address } = useAccount();
+  const { address, chain } = useAccount();
   const { writeContract } = useWriteContract();
 
   // State
@@ -166,7 +166,9 @@ export default function Social() {
         address: FX1_HUBS_CA,
         abi: FX1_HUBS_ABI,
         functionName: 'mintSocialReward',
-        args: [address, rewardAmount, id]
+        args: [address as `0x${string}`, rewardAmount, id],
+        account: address,
+        chain
       });
       saveTask(id);
     } catch (error) {
@@ -187,7 +189,7 @@ export default function Social() {
           <h1 className="text-2xl font-bold gradient-text cursor-pointer" onClick={() => navigate('/')}>
             FX1 Social Hub
           </h1>
-          <Button variant="hero" onClick={() => navigate('/')}>
+          <Button variant="outline" onClick={() => navigate('/')}>
             Back to Home
           </Button>
         </div>
@@ -267,10 +269,7 @@ export default function Social() {
           >
             <Crown className="w-16 h-16 text-gold-400 mx-auto mb-4 animate-bounce" />
             <h2 className="text-3xl font-bold text-gold-400 mb-2">Quest Legend!</h2>
-            <p className="text-white/80 mb-4">All tasks complete – Claim 50 bonus $FX1_HUBS</p>
-            <Button className="btn-royal text-lg px-8" onClick={() => claimReward('bonus')}>
-              Claim Bonus
-            </Button>
+            <p className="text-white/80 mb-4">All tasks complete! You're a social legend.</p>
           </motion.div>
         )}
 
