@@ -1,3 +1,7 @@
+"scripts": {
+  "build:dev": "vite build --mode development",
+  // ... other scripts
+}
 {
   "name": "fx1-nebula-gallery",
   "version": "1.0.0",
