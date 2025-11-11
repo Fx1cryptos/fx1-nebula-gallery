@@ -2,6 +2,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
+// Fetch allowed hosts from environment variable or default
+const EMERGENT_PREVIEW_HOSTS = process.env.EMERGENT_PREVIEW_HOSTS
+  ? process.env.EMERGENT_PREVIEW_HOSTS.split(",")
+  : ["fx1-digital-hubs.preview.emergentagent.com"];
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
@@ -31,4 +36,9 @@ export default defineConfig(({ mode }) => ({
     "process.env": process.env, // ensures env vars are available
   },
   base: "./", // ensures correct relative paths for Render static deploy
+  preview: {
+    port: 4173,
+    host: true,
+    allowedHosts: EMERGENT_PREVIEW_HOSTS,
+  },
 }));
