@@ -8,12 +8,12 @@
 
 @layer base {
   :root {
-    /* Core Palette – Royal Elegance */
-    --royal: 221 73% 37%;        /* #1e40af – Royal Blue */
-    --gold: 45 94% 57%;          /* #fbbf24 – 24K Gold */
-    --navy: 220 70% 12%;         /* #172554 – Deep Navy */
-    --white: 0 0% 98%;           /* #fafafa – Pure White */
-    --black: 220 45% 4%;         /* #0f0f1a – Void Black */
+    /* Core Palette – NFT Fashion Marketplace */
+    --navy: 210 100% 12%;        /* #001f3f – Navy Blue */
+    --gold: 51 100% 50%;         /* #FFD700 – Gold */
+    --white: 0 0% 100%;          /* #ffffff – Pure White */
+    --royal: 221 73% 45%;        /* Accent Royal */
+    --black: 210 100% 4%;        /* Deep Black */
 
     /* Background & Foreground */
     --background: var(--navy);
@@ -109,7 +109,7 @@
 
   body {
     @apply bg-background text-foreground overflow-x-hidden;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
     background: var(--gradient-hero);
     background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
