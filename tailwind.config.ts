@@ -24,6 +24,8 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				navy: 'hsl(var(--navy))',
+				gold: 'hsl(var(--gold))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
@@ -58,6 +60,10 @@ export default {
 					purple: 'hsl(var(--neon-purple))',
 					pink: 'hsl(var(--neon-pink))'
 				}
+			},
+			fontFamily: {
+				sans: ['Inter', 'Poppins', 'system-ui', 'sans-serif'],
+				display: ['Poppins', 'Inter', 'sans-serif'],
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
